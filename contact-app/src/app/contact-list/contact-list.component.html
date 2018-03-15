@@ -1,6 +1,7 @@
 <h2>Contact list</h2>
 <ul class="contacts">
   <li *ngFor="let contact of contacts"  routerLink="/viewContact/{{contact.id}}">
-    <span class="badge">{{contact.id}}</span> {{contact.fname}}
+    <span class="badge">{{contact.id}}</span> {{contact.fname + ' '+contact.lname}}
   </li>
+  <li *ngIf="contacts.length<=0">No contacts have been added. Please navigate to Add Contact tab to add new contact</li>
 </ul>

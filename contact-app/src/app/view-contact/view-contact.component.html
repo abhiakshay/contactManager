@@ -1,15 +1,22 @@
-<h1>id: {{id}}</h1>
 <div *ngIf="contact">
   <h2>{{ contact.fname + ' '+ contact.lname | uppercase }}</h2>
-  <div><span>id: </span>{{contact.id}}</div>
+  <form (ngSubmit)="addContact(contact)" #contactDetails = "ngForm">
   <div>
-    <label>Email:
-      <input type="email" [(ngModel)]="contact.email" placeholder="email"/>
+    <label>First Name:
+      <input type="text" [(ngModel)]="contact.fname" placeholder="fname" required name="fname" #fname="ngModel"/>
     </label>
-     <label>Phone:
-      <input type="phone" [(ngModel)]="contact.phone" placeholder="phone"/>
+    <label>Last Name:
+      <input type="text" [(ngModel)]="contact.lname" placeholder="lname" required name="lname"/>
+    </label>
+    <label>Email:
+      <input type="email" [(ngModel)]="contact.email" placeholder="email"  email  required name="email" #emailMd="ngModel" [class.invalid]="emailMd.errors?.email"/>
+    </label>
+    <label>Phone:
+      <input type="number" [(ngModel)]="contact.phone" placeholder="phone"  required minlength="10" name="phone" #phoneMd="ngModel"/>
     </label>
   </div>
-  <button (click)="updateContact(contact)">Update Contact</button>
+  <button (click)="updateContact(contact)" [disabled]="!contactDetails.valid">Update Contact</button>
+  <button (click)="deleteContact(contact)">Delete Contact</button>
   <button (click)="goBack()">go back</button>
+  </form>
 </div>

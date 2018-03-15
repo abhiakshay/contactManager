@@ -1,3 +1,19 @@
-<p>
-  add-contact works!
-</p>
+<div>
+  <form (ngSubmit)="addContact(contact)" #contactDetails = "ngForm">
+  <div>
+    <label>First Name:
+      <input type="text" [(ngModel)]="contact.fname" placeholder="fname" required name="fname" #fname="ngModel"/>
+    </label>
+    <label>Last Name:
+      <input type="text" [(ngModel)]="contact.lname" placeholder="lname" required name="lname"/>
+    </label>
+    <label>Email:
+      <input type="email" [(ngModel)]="contact.email" placeholder="email"  email  required name="email" #emailMd="ngModel" [class.invalid]="emailMd.errors?.email"/>
+    </label>
+    <label>Phone:
+      <input type="number" [(ngModel)]="contact.phone" placeholder="phone" phone required minlength="10" name="phone" #phoneMd="ngModel" [class.invalid] = "phoneMd.errors?.phone"/>
+    </label>
+  </div>
+  <button type="submit" [disabled]="!contactDetails.valid">Add Contact</button>
+  </form>
+</div>

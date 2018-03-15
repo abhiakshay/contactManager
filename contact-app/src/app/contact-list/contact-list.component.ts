@@ -8,7 +8,7 @@ import {ContactsServiceService} from '../contacts-service.service'
 })
 export class ContactListComponent implements OnInit {
 contacts:Contact[];
-  constructor(public contactService:ContactsServiceService) { }
+  constructor(private contactService:ContactsServiceService) { }
 
   ngOnInit() {
     this.contacts = this.contactService.getContacts();

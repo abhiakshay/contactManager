@@ -28,7 +28,10 @@ contacts:Contact[] = [
   }
 
   addContact(contact:Contact):void{
-    this.contacts.push(contact);
+    if(contact){
+      contact.id = this.contacts[this.contacts.length-1].id+1;
+      this.contacts.push(contact);
+    }
   }
 
   updateContactList(list):void{
@@ -39,6 +42,15 @@ contacts:Contact[] = [
     for(let i in this.contacts){
       if(this.contacts[i].id === id){
         this.contacts[i] = contact;
+        break;
+      }
+    }
+  }
+
+  deleteContact(contact,id):void {
+   for(let i in this.contacts){
+      if(this.contacts[i].id === id){
+        this.contacts.splice(Number(i),1);
         break;
       }
     }

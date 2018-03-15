@@ -31,6 +31,12 @@ export class ViewContactComponent implements OnInit {
 
   updateContact(contact):void{
     this.contactsService.updateContact(contact,this.id);
+    this.location.back();
+  }
+
+  deleteContact(contact):void{
+     this.contactsService.deleteContact(contact,this.id);
+     this.location.back();
   }
 
 }
