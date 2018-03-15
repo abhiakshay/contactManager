@@ -1,0 +1,15 @@
+<h1>id: {{id}}</h1>
+<div *ngIf="contact">
+  <h2>{{ contact.fname + ' '+ contact.lname | uppercase }}</h2>
+  <div><span>id: </span>{{contact.id}}</div>
+  <div>
+    <label>Email:
+      <input type="email" [(ngModel)]="contact.email" placeholder="email"/>
+    </label>
+     <label>Phone:
+      <input type="phone" [(ngModel)]="contact.phone" placeholder="phone"/>
+    </label>
+  </div>
+  <button (click)="updateContact(contact)">Update Contact</button>
+  <button (click)="goBack()">go back</button>
+</div>

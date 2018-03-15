@@ -1,0 +1,6 @@
+<h2>Contact list</h2>
+<ul class="contacts">
+  <li *ngFor="let contact of contacts"  routerLink="/viewContact/{{contact.id}}">
+    <span class="badge">{{contact.id}}</span> {{contact.fname}}
+  </li>
+</ul>
