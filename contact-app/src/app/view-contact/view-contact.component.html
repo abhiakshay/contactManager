@@ -1,22 +1,31 @@
 <div *ngIf="contact">
   <h2>{{ contact.fname + ' '+ contact.lname | uppercase }}</h2>
-  <form (ngSubmit)="addContact(contact)" #contactDetails = "ngForm">
+  <form #contactDetails = "ngForm" formnovalidate>
   <div>
-    <label>First Name:
-      <input type="text" [(ngModel)]="contact.fname" placeholder="fname" required name="fname" #fname="ngModel"/>
-    </label>
-    <label>Last Name:
-      <input type="text" [(ngModel)]="contact.lname" placeholder="lname" required name="lname"/>
-    </label>
-    <label>Email:
-      <input type="email" [(ngModel)]="contact.email" placeholder="email"  email  required name="email" #emailMd="ngModel" [class.invalid]="emailMd.errors?.email"/>
-    </label>
-    <label>Phone:
-      <input type="number" [(ngModel)]="contact.phone" placeholder="phone"  required minlength="10" name="phone" #phoneMd="ngModel"/>
-    </label>
+    <div class="inputContainer">
+      <label for="inputFname">First Name:</label>
+      <input id="inputFname" type="text" [(ngModel)]="contact.fname" placeholder="fname" required name="fname" #fname="ngModel"/>
+    </div>
+    <div class="inputContainer">
+      <label for="inputLname">Last Name: </label>
+      <input id="inputLname" type="text" [(ngModel)]="contact.lname" placeholder="lname" required name="lname"/>
+    </div>
+    <div class="inputContainer">
+      <label for="inputEmail">Email:</label>
+      <input id="inputEmail" type="email" [(ngModel)]="contact.email" placeholder="email"  email  required name="email" #emailMd="ngModel" [class.invalid]="emailMd.errors?.email"/>
+     </div>
+    <div class="inputContainer">
+      <label for="inputPhone">Phone: </label>
+      <input id="inputPhone" type="number" [(ngModel)]="contact.phone" placeholder="phone" required  ng-maxlength="10" ng-minlength="10" name="phone"/>
+    </div>
+    <div class="inputContainer">
+     <label for="inputStatus">Status:</label>
+     <input id="inputStatus" class="toggle" type="checkbox" [(ngModel)]="contact.status" placeholder="status" name="status" #statusMd="ngModel" [class.invalid] = "statusMd.errors?.status"/>
+     <label for="inputStatus" class="toggle"></label>
+    </div>
   </div>
-  <button (click)="updateContact(contact)" [disabled]="!contactDetails.valid">Update Contact</button>
-  <button (click)="deleteContact(contact)">Delete Contact</button>
-  <button (click)="goBack()">go back</button>
+  <button (click)="updateContact(contact)" [disabled]="!contactDetails.valid" class="blue">Update Contact</button>
+  <button (click)="deleteContact(contact)" class="pink">Delete Contact</button>
+  <button (click)="goBack()" class="purple">go back</button>
   </form>
 </div>

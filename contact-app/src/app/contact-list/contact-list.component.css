@@ -15,6 +15,11 @@ contacts {
   border-radius: 4px;
   list-style: none;
 }
+
+.contacts li.no-contacts {
+    color: red;
+    padding: 3%;
+}
 .contacts li a {
   display: block;
   text-decoration: none;

@@ -6,19 +6,11 @@ export class ContactsServiceService {
 contacts:Contact[] = [
     {
     id: 1,
-    fname:'Akshay',
-    lname: 'Pathare',
-    phone: 7875886129,
-    email: 'abhiakshay@gmail.com',
-    status: false
-  },
-  {
-    id: 2,
-    fname:'Preeti',
-    lname: 'Pathare',
-    phone: 7875886129,
-    email: 'preeti@gmail.com',
-    status: false
+    fname:'Test',
+    lname: 'P',
+    phone: 78789998,
+    email: 'test@gmail.com',
+    status: true
   }
   ];
   constructor() { }
@@ -29,7 +21,7 @@ contacts:Contact[] = [
 
   addContact(contact:Contact):void{
     if(contact){
-      contact.id = this.contacts[this.contacts.length-1].id+1;
+      contact.id = this.contacts[this.contacts.length-1]? this.contacts[this.contacts.length-1].id+1: 1;
       this.contacts.push(contact);
     }
   }

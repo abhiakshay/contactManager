@@ -23,6 +23,12 @@ a {
 }
 
 /* Navigation link styles */
+nav {
+  background: beige;
+  padding: 4px;
+  margin-bottom: 1%;
+}
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -57,7 +63,21 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  color: #fff;
 }
+
+button.blue {
+  background: cornflowerblue;
+}
+
+button.pink {
+  background: hotpink;
+}
+
+button.purple{
+  background: mediumpurple;
+}
+
 button:hover {
   background-color: #cfd8dc;
 }
@@ -67,17 +87,62 @@ button:disabled {
   cursor: auto;
 }
 
+div.inputContainer {
+  border: 1px solid burlywood;
+  margin-bottom: 3%;
+  padding: 1%;
+}
+
 label {
-    display: block;
-    margin: 3%;
+    display: inline-block;
     padding: 1%;
-    border: 1px solid gray;
     border-radius: 0.5em;
+    width: 25%;
+    vertical-align: middle;
+}
+
+
+label.toggle {
+  width: 3.5em;
+  height: 1em;
+  position: relative;
+  border-radius: 1em;
+  background: #607D8B;
+  transition: all 350ms ease;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -ms-transition: all 350ms ease;
+}
+
+label.toggle:before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  width: 1.6em;
+  height: 1.6em;
+  left: 1px;
+  top: 1px;
+  transition: all 350ms ease;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -ms-transition: all 350ms ease;
+}
+
+input[type="checkbox"]:checked + label.toggle {
+  background: #039be5;
+}
+
+input[type="checkbox"]:checked + label.toggle:before {
+  left: 2.6em;
 }
 
 input {
-  border-radius: 0.5em;
   padding-left: 0.3em
+}
+
+input.toggle{
+  display: none;
 }
 
 input.ng-invalid,
